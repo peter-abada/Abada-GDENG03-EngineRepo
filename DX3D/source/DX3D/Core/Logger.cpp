@@ -7,7 +7,12 @@ dx3_d::Logger::Logger(LogLevel logLevel) : m_logLevel(logLevel)
 	std::clog << "<------------------------------->" << "\n";
 }
 
-void dx3_d::Logger::log(LogLevel level, const char* message) const
+dx3_d::Logger::~Logger()
+{
+	
+}
+
+void dx3_d::Logger::log(LogLevel level, const char* message)
 {
 	auto logLevelToString = [](LogLevel logLevel)
 		{

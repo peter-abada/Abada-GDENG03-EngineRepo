@@ -11,7 +11,7 @@ dx3_d::Base::~Base()
 	
 }
 
-Logger& dx3_d::Base::getLogger() const noexcept
+Logger& dx3_d::Base::getLogger() noexcept
 {
 	return m_logger;
 }
