@@ -3,10 +3,16 @@
 
 dx3_d::GraphicsEngine::GraphicsEngine(const GraphicsEngineDesc& desc) : Base(desc.base)
 {
-	m_renderSystem = std::make_unique<RenderSystem>(RenderSystemDesc{m_logger});
+	
+	m_renderSystem = std::make_shared<RenderSystem>(RenderSystemDesc{m_logger});
 }
 
 dx3_d::GraphicsEngine::~GraphicsEngine()
 {
 	
+}
+
+dx3_d::RenderSystem& dx3_d::GraphicsEngine::getRenderSystem() const noexcept
+{
+	return *m_renderSystem;
 }

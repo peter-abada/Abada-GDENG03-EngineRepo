@@ -5,7 +5,7 @@ int main()
 
 	try
 	{
-		dx3_d::Game game({dx3_d::Logger::LogLevel::Info});
+		dx3_d::Game game({ {1280, 720},dx3_d::Logger::LogLevel::Info });
 		game.run();
 	}
 	catch (const std::runtime_error&)
