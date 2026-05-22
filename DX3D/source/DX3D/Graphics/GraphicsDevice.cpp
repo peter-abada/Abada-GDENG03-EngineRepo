@@ -4,6 +4,7 @@
 #include <DX3D/Graphics/DeviceContext.h>
 #include <DX3D/Graphics/ShaderBinary.h>
 #include <DX3D/Graphics/GraphicsPipelineState.h>
+#include <DX3D/Graphics/VertexBuffer.h>
 
 dx3_d::GraphicsDevice::GraphicsDevice(const GraphicsDeviceDesc& desc) : Base(desc.base)
 {
@@ -49,6 +50,11 @@ dx3_d::ShaderBinaryPtr dx3_d::GraphicsDevice::compileShader(const ShaderCompileD
 dx3_d::GraphicsPipelineStatePtr dx3_d::GraphicsDevice::createGraphicsPipelineState(const GraphicsPipelineStateDesc& desc)
 {
 	return std::make_shared<GraphicsPipelineState>(desc, getGraphicsResourceDesc());
+}
+
+dx3_d::VertexBufferPtr dx3_d::GraphicsDevice::createVertexBuffer(const VertexBufferDesc& desc)
+{
+	return std::make_shared<VertexBuffer>(desc, getGraphicsResourceDesc());
 }
 
 void dx3_d::GraphicsDevice::executeCommandList(DeviceContext& context)
