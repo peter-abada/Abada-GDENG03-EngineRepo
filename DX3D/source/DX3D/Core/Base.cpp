@@ -15,3 +15,4 @@ Logger& dx3_d::Base::getLogger() noexcept
 {
 	return m_logger;
 }
+
