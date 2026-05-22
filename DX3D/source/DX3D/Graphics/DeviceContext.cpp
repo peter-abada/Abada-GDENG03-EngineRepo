@@ -43,3 +43,9 @@ void dx3_d::DeviceContext::setViewportSize(const Rect& size)
 
 	m_context->RSSetViewports(1, &vp);
 }
+
+void dx3_d::DeviceContext::drawTriangleList(ui32 vertexCount, ui32 startVertexLocation)
+{
+	m_context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	m_context->Draw(vertexCount, startVertexLocation);
+}

@@ -3,6 +3,7 @@
 #include <DX3D/Graphics/DeviceContext.h>
 #include <DX3D/Graphics/SwapChain.h>
 #include "DX3D/Math/Vec3.h"
+#include <DX3D/Graphics/VertexBuffer.h>
 
 dx3_d::GraphicsEngine::GraphicsEngine(const GraphicsEngineDesc& desc) : Base(desc.base)
 {
@@ -18,9 +19,9 @@ float4 VSMain(float3 pos: POSITION): SV_Position
 {
 return float4(pos.xyz, 1.0);
 }
-void PSMain()
+float4 PSMain(): SV_Target
 {
-	
+return float4(1.0, 1.0, 0.0, 1.0);
 }
 )";
 	constexpr char shaderSourceName[] = "Basic";
@@ -54,11 +55,14 @@ dx3_d::GraphicsDevice& dx3_d::GraphicsEngine::getGraphicsDevice() noexcept
 void dx3_d::GraphicsEngine::render(SwapChain& swapChain)
 {
 	auto& context = *m_deviceContext;
-	context.clearAndSetBackBuffer(swapChain, { 1, 0, 0, 1 });
+	context.clearAndSetBackBuffer(swapChain, { 0, 0, 1, 1 });
 	context.setGraphicsPipelineState(*m_pipline);
+
+	context.setViewportSize(swapChain.getSize());
 
 	auto& vb = *m_vb;
 	context.setVertexBuffer(vb);
+	context.drawTriangleList(vb.getVertexListSize(), 0u);
 
 	auto& device = *m_graphicsDevice;
 	device.executeCommandList(context);
