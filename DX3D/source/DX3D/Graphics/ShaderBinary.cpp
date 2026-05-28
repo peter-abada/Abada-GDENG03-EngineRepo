@@ -36,7 +36,7 @@ dx3_d::ShaderBinary::ShaderBinary(const ShaderCompileDesc& desc, const GraphicsR
 
 }
 
-dx3_d::ShaderBinaryData dx3_d::ShaderBinary::getData() const noexcept
+dx3_d::BinaryData dx3_d::ShaderBinary::getData() const noexcept
 {
 	return
 	{

@@ -7,7 +7,7 @@ namespace dx3_d
 	{
 	public:
 		ShaderBinary(const ShaderCompileDesc& desc, const GraphicsResourceDesc& gDesc);
-		ShaderBinaryData getData() const noexcept;
+		BinaryData getData() const noexcept;
 		ShaderType getType() const noexcept;
 
 	private:

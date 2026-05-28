@@ -27,3 +27,8 @@ int main()
 
 	return EXIT_SUCCESS;
 }
+//NOTE: This follows the newer tutorials which still use DX11
+
+
+
+// this is just the first HO and there's already so many files :')

@@ -1,6 +1,8 @@
 #pragma once
 #include <DX3D/Core/Core.h>
-#include "DX3D/Core/Base.h"
+#include <DX3D/Core/Base.h>
+#include <DX3D/Math/Vec3.h>
+#include <DX3D/Math/Vec4.h>
 
 namespace dx3_d
 {
@@ -15,6 +17,13 @@ namespace dx3_d
 		void render(SwapChain& swapChain);
 
 	private:
+		struct Vertex
+		{
+			Vec3 position;
+			Vec4 color;
+		};
+
+	private:
 		std::shared_ptr<GraphicsDevice> m_graphicsDevice{};
 		DeviceContextPtr m_deviceContext{};
 		GraphicsPipelineStatePtr m_pipline{};
@@ -23,4 +32,3 @@ namespace dx3_d
 
 }
 
-//42: 43
