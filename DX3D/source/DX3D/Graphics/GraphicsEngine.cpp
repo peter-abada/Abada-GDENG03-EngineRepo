@@ -33,18 +33,25 @@ dx3_d::GraphicsEngine::GraphicsEngine(const GraphicsEngineDesc& desc) : Base(des
 
 	m_pipline = device.createGraphicsPipelineState({ *vsSig, *ps });
 
-	const Vertex vertexList[] =
+	const Vertex rectVertexList[] =
 	{
-		{{-0.5f, -0.5f, 0.0f}, {1, 0, 0, 1} },
+		{{-0.5f, -0.5f, 0.0f}, {0, 1, 0, 1} },
 		{{-0.5f, 0.5f, 0.0f}, {0, 1, 0, 1} },
-		{{0.5f, 0.5f, 0.0f}, {0, 0, 1, 1} },
+		{{0.5f, 0.5f, 0.0f}, {0, 1, 0, 1} },
 
-		{ {0.5f, 0.5f, 0.0f}, {0, 0, 1, 1} },
-		{{0.5f, -0.5f, 0.0f}, {1, 0, 1, 1} },
-		{{-0.5f, -0.5f, 0.0f}, {1, 0, 0, 1} },
+		{ {0.5f, 0.5f, 0.0f}, {0, 1, 0, 1} },
+		{{0.5f, -0.5f, 0.0f}, {0, 1, 0, 1} },
+		{{-0.5f, -0.5f, 0.0f}, {0, 1, 0, 1} },
 	};
 
-	m_vb = device.createVertexBuffer({vertexList, std::size(vertexList), sizeof(Vertex)});
+	const Vertex triVertexList[] = 
+	{
+		{{-0.5f, -0.5f, 0.0f}, {1, 0, 0, 1} },
+		{{0.0f, 0.5f, 0.0f}, {0, 1, 0, 1} },
+		{{0.5f, -0.5f, 0.0f}, {0, 0, 1, 1} },
+	};
+
+	m_vb = device.createVertexBuffer({rectVertexList, std::size(rectVertexList), sizeof(Vertex)});
 }
 
 dx3_d::GraphicsEngine::~GraphicsEngine()
