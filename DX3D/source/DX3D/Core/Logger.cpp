@@ -12,7 +12,7 @@ dx3_d::Logger::~Logger()
 	
 }
 
-void dx3_d::Logger::log(LogLevel level, const char* message)
+void dx3_d::Logger::_log(LogLevel level, const char* message)
 {
 	auto logLevelToString = [](LogLevel logLevel)
 		{
