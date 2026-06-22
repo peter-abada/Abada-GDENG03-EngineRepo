@@ -5,6 +5,7 @@
 #include <DX3D/Graphics/ShaderBinary.h>
 #include <DX3D/Graphics/GraphicsPipelineState.h>
 #include <DX3D/Graphics/VertexBuffer.h>
+#include <DX3D/Graphics/IndexBuffer.h>
 #include <DX3D/Graphics/VertexShaderSignature.h>
 #include <DX3D/Graphics/ConstantBuffer.h>
 
@@ -70,10 +71,15 @@ dx3_d::RefPtr<dx3_d::ConstantBuffer> dx3_d::GraphicsDevice::createConstantBuffer
 	return std::make_shared<ConstantBuffer>(desc, getGraphicsResourceDesc());
 }
 
+dx3_d::RefPtr<dx3_d::IndexBuffer> dx3_d::GraphicsDevice::createIndexBuffer(const IndexBufferDesc& desc)
+{
+	return std::make_shared<IndexBuffer>(desc, getGraphicsResourceDesc());
+}
+
 void dx3_d::GraphicsDevice::executeCommandList(DeviceContext& context)
 {
 	Microsoft::WRL::ComPtr<ID3D11CommandList> list{};
-	DX3DGraphicsLogThrowOnFail (context.m_context->FinishCommandList(false, &list), "FinishCommandList failed.");
+	DX3DGraphicsLogThrowOnFail (context.m_context->FinishCommandList(false, &list), "FinishCommandList failed.")
 
 	m_d3dDeviceContext->ExecuteCommandList(list.Get(), false);
 }

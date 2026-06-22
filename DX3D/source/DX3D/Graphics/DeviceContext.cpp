@@ -2,6 +2,7 @@
 #include <DX3D/Graphics/SwapChain.h>
 #include <DX3D/Graphics/GraphicsPipelineState.h>
 #include <DX3D/Graphics/VertexBuffer.h>
+#include <DX3D/Graphics/IndexBuffer.h>
 #include <DX3D/Graphics/ConstantBuffer.h>
 
 dx3_d::DeviceContext::DeviceContext(const GraphicsResourceDesc& gDesc) : GraphicsResource(gDesc)
@@ -32,6 +33,11 @@ void dx3_d::DeviceContext::setVertexBuffer(const VertexBuffer& buffer)
 	auto offset = 0u;
 
 	m_context->IASetVertexBuffers(0, 1, &buf, &stride, &offset);
+}
+
+void dx3_d::DeviceContext::setIndexBuffer(const IndexBuffer& buffer)
+{
+	m_context->IASetIndexBuffer(buffer.m_buffer.Get(), DXGI_FORMAT_R32_UINT, 0);
 }
 
 void dx3_d::DeviceContext::setViewportSize(const Rect& size)
@@ -68,4 +74,10 @@ void dx3_d::DeviceContext::drawTriangleList(ui32 vertexCount, ui32 startVertexLo
 {
 	m_context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	m_context->Draw(vertexCount, startVertexLocation);
+}
+
+void dx3_d::DeviceContext::drawIndexedTriangleList(ui32 indexCount, ui32 startVertexIndex, ui32 startIndexLocation)
+{
+	m_context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	m_context->DrawIndexed(indexCount, startIndexLocation, startVertexIndex);
 }
