@@ -14,7 +14,7 @@ namespace dx3_d
 
 		GraphicsDevice& getGraphicsDevice() noexcept;
 
-		void render(SwapChain& swapChain);
+		void render(SwapChain& swapChain, f32 deltaTime);
 
 	private:
 		struct Vertex
@@ -22,12 +22,24 @@ namespace dx3_d
 			Vec3 position;
 			Vec4 color;
 		};
+		struct alignas(16) ConstantData
+		{
+			f32 scale{};
+		};
 
 	private:
-		std::shared_ptr<GraphicsDevice> m_graphicsDevice{};
-		DeviceContextPtr m_deviceContext{};
-		GraphicsPipelineStatePtr m_pipline{};
-		VertexBufferPtr m_vb{};
+		//std::shared_ptr<GraphicsDevice> m_graphicsDevice{};
+		//DeviceContextPtr m_deviceContext{};
+		//GraphicsPipelineStatePtr m_pipline{};
+		//VertexBufferPtr m_vb{};
+		RefPtr<GraphicsDevice> m_graphicsDevice{};
+		RefPtr<DeviceContext> m_deviceContext{};
+		RefPtr<GraphicsPipelineState> m_pipeline{};
+		RefPtr<VertexBuffer> m_vb{};
+		RefPtr<ConstantBuffer> m_cb{};
+
+		f32 m_sum{};
+		f32 m_scale{};
 	};
 
 }

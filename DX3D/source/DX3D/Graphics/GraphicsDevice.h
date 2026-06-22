@@ -14,12 +14,13 @@ namespace dx3_d
 		explicit GraphicsDevice(const GraphicsDeviceDesc& desc);
 		virtual ~GraphicsDevice() override;
 
-		SwapChainPtr createSwapChain(const SwapChainDesc& desc) const;
-		DeviceContextPtr createDeviceContext();
-		ShaderBinaryPtr compileShader(const ShaderCompileDesc& desc);
-		GraphicsPipelineStatePtr createGraphicsPipelineState(const GraphicsPipelineStateDesc& desc);
-		VertexBufferPtr createVertexBuffer(const VertexBufferDesc& desc);
-		VertexShaderSignaturePtr CreateVertexShaderSignature(const VertexShaderSignatureDesc& desc);
+		RefPtr<SwapChain> createSwapChain(const SwapChainDesc& desc) const;
+		RefPtr<DeviceContext> createDeviceContext();
+		RefPtr<ShaderBinary> compileShader(const ShaderCompileDesc& desc);
+		RefPtr<GraphicsPipelineState> createGraphicsPipelineState(const GraphicsPipelineStateDesc& desc);
+		RefPtr<VertexBuffer> createVertexBuffer(const VertexBufferDesc& desc);
+		RefPtr<VertexShaderSignature> CreateVertexShaderSignature(const VertexShaderSignatureDesc& desc);
+		RefPtr<ConstantBuffer> createConstantBuffer(const ConstantBufferDesc& desc);
 
 		void executeCommandList(DeviceContext& context);
 

@@ -1,3 +1,5 @@
+#include "GraphicsEngine.h"
+
 #include <DX3D/Graphics/GraphicsEngine.h>
 #include "DX3D/Graphics/GraphicsDevice.h"
 #include <DX3D/Graphics/DeviceContext.h>
@@ -31,7 +33,7 @@ dx3_d::GraphicsEngine::GraphicsEngine(const GraphicsEngineDesc& desc) : Base(des
 	auto ps = device.compileShader({ shaderFilePath, shaderSourceCode, shaderSourceCodeSize, "PSMain", ShaderType::PixelShader});
 	auto vsSig = device.CreateVertexShaderSignature({ vs });
 
-	m_pipline = device.createGraphicsPipelineState({ *vsSig, *ps });
+	m_pipeline = device.createGraphicsPipelineState({ *vsSig, *ps });
 
 	const Vertex rectVertexList[] =
 	{
@@ -52,6 +54,7 @@ dx3_d::GraphicsEngine::GraphicsEngine(const GraphicsEngineDesc& desc) : Base(des
 	};
 
 	m_vb = device.createVertexBuffer({rectVertexList, std::size(rectVertexList), sizeof(Vertex)});
+	m_cb = device.createConstantBuffer({ {}, sizeof(ConstantData)});
 }
 
 dx3_d::GraphicsEngine::~GraphicsEngine()
@@ -64,16 +67,26 @@ dx3_d::GraphicsDevice& dx3_d::GraphicsEngine::getGraphicsDevice() noexcept
 	return *m_graphicsDevice;
 }
 
-void dx3_d::GraphicsEngine::render(SwapChain& swapChain)
+void dx3_d::GraphicsEngine::render(SwapChain& swapChain, f32 deltaTime)
 {
 	auto& context = *m_deviceContext;
+	auto& cb = *m_cb;
+
+	m_sum += deltaTime * 3.0f;
+	m_scale = std::abs(std::sin(m_sum));
+
+	ConstantData data{};
+	data.scale = m_scale;
+	context.updateConstantBuffer(cb, &data);
+
 	context.clearAndSetBackBuffer(swapChain, { 0.27f, 0.39f, 0.55f, 1 });
-	context.setGraphicsPipelineState(*m_pipline);
+	context.setGraphicsPipelineState(*m_pipeline);
 
 	context.setViewportSize(swapChain.getSize());
 
 	auto& vb = *m_vb;
 	context.setVertexBuffer(vb);
+	context.setConstantBuffer(cb);
 	context.drawTriangleList(vb.getVertexListSize(), 0u);
 
 	auto& device = *m_graphicsDevice;

@@ -3,8 +3,8 @@
 
 dx3_d::Logger::Logger(LogLevel logLevel) : m_logLevel(logLevel)
 {
-	std::clog << "Peter Abada | GDENG03 Window Test" << "\n";
-	std::clog << "<------------------------------->" << "\n";
+	//std::clog << "Peter Abada | GDENG03 Window Test" << "\n";
+	//std::clog << "<------------------------------->" << "\n";
 }
 
 dx3_d::Logger::~Logger()
