@@ -94,5 +94,16 @@ namespace dx3_d
 		Rect windowSize{ 1280, 720 };
 		Logger::LogLevel logLevel = Logger::LogLevel::Error;
 	};
+
+	struct WorldDesc
+	{
+		BaseDesc base;
+	};
+
+	struct GameObjectDesc
+	{
+		BaseDesc base;
+		World& world;
+	};
 }
 

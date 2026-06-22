@@ -13,8 +13,13 @@ namespace dx3_d
 		explicit Game(const GameDesc& desc);
 		virtual ~Game();
 
+		virtual World& getWorld() noexcept final;
 		virtual Logger& getLogger() noexcept final;
 		virtual void run() final;
+
+	protected:
+		virtual void onCreate() {}
+		virtual void onUpdate(f32 deltaTime) {}
 
 	private:
 		void onInternalUpdate();
@@ -23,6 +28,7 @@ namespace dx3_d
 		UniquePtr<Logger> m_logger{};
 		UniquePtr<GraphicsEngine> m_graphicsEngine{};
 		UniquePtr<Display> m_display{};
+		UniquePtr<World> m_world{};
 		bool m_isRunning{ true };
 
 		std::chrono::steady_clock::time_point m_previousTime{};

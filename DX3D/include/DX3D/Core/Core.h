@@ -27,6 +27,9 @@ namespace dx3_d
 	class ConstantBuffer;
 	class IndexBuffer;
 
+	class World;
+	class GameObject;
+
 	using i32 = int;
 	using ui32 = unsigned int;
 	using f32 = float;
