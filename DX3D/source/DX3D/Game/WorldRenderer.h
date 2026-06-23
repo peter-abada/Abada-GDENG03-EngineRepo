@@ -7,16 +7,13 @@
 
 namespace dx3_d
 {
-	class GraphicsEngine final: public Base
+	class WorldRenderer final : public Base
 	{
 	public:
-		GraphicsEngine(const GraphicsEngineDesc& desc);
-		virtual ~GraphicsEngine() override;
+		explicit WorldRenderer(const WorldRendererDesc& desc);
+		virtual ~WorldRenderer() override;
 
-		GraphicsDevice& getGraphicsDevice() noexcept;
-
-		void render(SwapChain& swapChain, f32 deltaTime);
-
+		void render(const World& world, SwapChain& swapChain, f32 deltaTime);
 	private:
 		struct Vertex
 		{
@@ -30,18 +27,12 @@ namespace dx3_d
 		};
 
 	private:
-		//std::shared_ptr<GraphicsDevice> m_graphicsDevice{};
-		//DeviceContextPtr m_deviceContext{};
-		//GraphicsPipelineStatePtr m_pipline{};
-		//VertexBufferPtr m_vb{};
-		RefPtr<GraphicsDevice> m_graphicsDevice{};
+		GraphicsDevice& m_graphicsDevice;
 		RefPtr<DeviceContext> m_deviceContext{};
 		RefPtr<GraphicsPipelineState> m_pipeline{};
 		RefPtr<VertexBuffer> m_vb{};
 		RefPtr<ConstantBuffer> m_cb{};
 		RefPtr<IndexBuffer> m_ib{};
-
-		f32 m_rot{}, m_scale{}, m_pos{ -0.0f };
 	};
 
 }

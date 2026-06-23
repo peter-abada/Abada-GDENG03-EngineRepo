@@ -22,11 +22,6 @@ namespace dx3_d
 		GraphicsDevice& graphicsDevice;
 	};
 
-	struct GraphicsEngineDesc
-	{
-		BaseDesc base;
-	};
-
 	struct GraphicsDeviceDesc
 	{
 		BaseDesc base;
@@ -35,7 +30,7 @@ namespace dx3_d
 	struct SwapChainDesc
 	{
 		void* winHandle{};
-		Rect winSize{}; 
+		Rect winSize{};
 	};
 
 	enum class ShaderType
@@ -64,12 +59,6 @@ namespace dx3_d
 		size_t dataSize{};
 	};
 
-	struct ConstantBufferDesc
-	{
-		const void* buffer{};
-		ui32 bufferSize{};
-	};
-
 	struct GraphicsPipelineStateDesc
 	{
 		const VertexShaderSignature& vs;
@@ -83,15 +72,22 @@ namespace dx3_d
 		ui32 vertexSize{};
 	};
 
+	struct ConstantBufferDesc
+	{
+		const void* buffer{};
+		ui32 bufferSize{};
+	};
+
 	struct IndexBufferDesc
 	{
 		const ui32* indexList{};
 		ui32 indexListSize{};
 	};
 
+
 	struct GameDesc
 	{
-		Rect windowSize{ 1280, 720 };
+		Rect windowSize{ 1280,720 };
 		Logger::LogLevel logLevel = Logger::LogLevel::Error;
 	};
 
@@ -111,6 +107,12 @@ namespace dx3_d
 		BaseDesc base;
 		GameObject& object;
 		World& world;
+	};
+
+	struct WorldRendererDesc
+	{
+		BaseDesc base;
+		GraphicsDevice& engine;
 	};
 }
 

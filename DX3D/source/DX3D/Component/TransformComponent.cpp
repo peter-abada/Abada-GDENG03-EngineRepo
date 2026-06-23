@@ -40,6 +40,12 @@ dx3_d::Vec3 dx3_d::TransformComponent::getScale() const noexcept
 	return m_scale;
 }
 
+dx3_d::Mat4x4 dx3_d::TransformComponent::getWorldMatrix() noexcept
+{
+	updateWorldMatrix();
+	return m_worldMat;
+}
+
 void dx3_d::TransformComponent::updateWorldMatrix() noexcept
 {
 	if (!m_dirty) return;

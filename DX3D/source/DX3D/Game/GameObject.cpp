@@ -6,7 +6,12 @@
 
 dx3_d::GameObject::GameObject(const GameObjectDesc& desc) : Identifiable(desc.base), m_world(desc.world)
 {
-	createOrGetComponent<TransformComponent>();
+	m_transform = createOrGetComponent<TransformComponent>();
+}
+
+dx3_d::TransformComponent& dx3_d::GameObject::getTransform() noexcept
+{
+	return *m_transform;
 }
 
 dx3_d::Component* dx3_d::GameObject::createComponentInternal(UniquePtr<Component>& component)
