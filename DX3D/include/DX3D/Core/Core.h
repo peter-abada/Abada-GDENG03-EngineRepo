@@ -14,6 +14,7 @@ namespace dx3_d
 	class Base;
 	class Window;
 	class Game;
+	class InputSystem;
 	class WorldRenderer;
 	class GraphicsDevice;
 	class Logger;

@@ -11,6 +11,6 @@ protected:
 	virtual void onUpdate(dx3_d::f32 deltaTime);
 
 private:
-	dx3_d::GameObject* m_objects[9]{};
+	dx3_d::GameObject* m_player{};
 	dx3_d::f32 m_rot{}, m_scale{};
 };

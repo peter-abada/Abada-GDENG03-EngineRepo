@@ -10,6 +10,8 @@ namespace dx3_d
 		explicit Window(const WindowDesc& desc);
 		virtual ~Window() override;
 
+		dx3_d::Rect getClientAreaInScreenSpace();
+
 	protected:
 		void* m_handle{};
 		Rect m_size{};
