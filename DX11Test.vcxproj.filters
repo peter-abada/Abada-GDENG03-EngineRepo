@@ -90,6 +90,9 @@
     <ClCompile Include="DX3D\source\DX3D\Input\InputSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DX3D\source\DX3D\Input\SpawnCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DX3D\include\DX3D\Core\Base.h">
@@ -195,6 +198,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DX3D\include\DX3D\Input\InputSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DX3D\include\DX3D\Input\Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DX3D\include\DX3D\Input\SpawnCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

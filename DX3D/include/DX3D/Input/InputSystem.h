@@ -5,6 +5,8 @@
 #include <DX3D/Math/Rect.h>
 #include <array>
 
+#include "Command.h"
+
 namespace dx3_d
 {
 	class InputSystem final : public Base

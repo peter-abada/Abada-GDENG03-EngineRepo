@@ -17,6 +17,7 @@ namespace dx3_d
 		virtual Logger& getLogger() noexcept final;
 		virtual InputSystem& getInputSystem() noexcept final;
 		virtual void run() final;
+		virtual void close() final;
 
 	protected:
 		virtual void onCreate() {}

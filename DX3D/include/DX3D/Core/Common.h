@@ -141,6 +141,8 @@ namespace dx3_d
 		Shift,
 		Space,
 		Enter,
+		Delete,
+		Backspace,
 
 		// Mouse buttons (optional inclusion)
 		MouseLeft,

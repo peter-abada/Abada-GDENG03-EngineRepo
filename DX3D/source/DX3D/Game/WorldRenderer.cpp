@@ -95,7 +95,7 @@ void dx3_d::WorldRenderer::render(const World& world, SwapChain& swapChain, f32 
 
 
 	auto& context = *m_deviceContext;
-	context.clearAndSetBackBuffer(swapChain, { 0.27f, 0.39f, 0.55f, 1.0f });
+	context.clearAndSetBackBuffer(swapChain, { 0.0f, 0.0f, 0.0f, 1.0f });
 	context.setGraphicsPipelineState(*m_pipeline);
 	context.setViewportSize(size);
 
