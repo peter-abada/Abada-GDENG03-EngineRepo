@@ -14,10 +14,8 @@ namespace dx3_d
 		explicit World(const WorldDesc& desc);
 
 		template <typename T>
-		T* createGameObject()
+		T* createGameObject() requires IsRegistered<GameObject, T>
 		{
-			static_assert(std::is_base_of<GameObject, T>::value, "T must inherit from dx3d::GameObject.");
-			static_assert(HasTypeId<T>, "T needs a unique TypeId. Make sure you added dx3d_typeid and applied it to the correct class.");
 			UniquePtr<GameObject> e = std::make_unique<T>(GameObjectDesc{
 				{m_logger},
 				*this
@@ -27,6 +25,8 @@ namespace dx3_d
 		void update(f32 deltaTime);
 	private:
 		GameObject* createGameObjectInternal(UniquePtr<GameObject>& object);
+		void addComponentInternal(Component& component);
+		void addDirtyTransformInternal(TransformComponent& component);
 
 	private:
 		enum class EventType
@@ -36,16 +36,23 @@ namespace dx3_d
 		struct GameObjectEvent
 		{
 			GameObject* object{};
+			size_t pendingObjectIndex{};
 			EventType eventType{};
 		};
 
 	private:
-		std::unordered_map<size_t, std::vector<UniquePtr<GameObject>>> m_objects;
+		std::unordered_map<size_t, std::vector<UniquePtr<GameObject>>> m_objects{};
+		std::unordered_map<size_t, std::vector<Component*>> m_components{};
+
+		std::vector<TransformComponent*> m_dirtyTransforms{};
 
 		std::vector<UniquePtr<GameObject>> m_pendingObjects;
 		std::vector<UniquePtr<GameObject>> m_pendingObjectsSwapBuffer;
 
 		std::vector<GameObjectEvent> m_events{};
 		std::vector<GameObjectEvent> m_eventsSwapBuffer{};
+
+		friend class GameObject;
+		friend class TransformComponent;
 	};
 }
