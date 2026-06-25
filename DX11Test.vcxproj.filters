@@ -75,7 +75,7 @@
     <ClCompile Include="Game\MainGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Objects\MyObject.cpp">
+    <ClCompile Include="DX3D\source\DX3D\Math\MathUtils.h">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DX3D\source\DX3D\Component\TransformComponent.cpp">
@@ -88,6 +88,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DX3D\source\DX3D\Input\InputSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Objects\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DX3D\source\DX3D\Component\CameraComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -179,7 +185,7 @@
     <ClInclude Include="Game\MainGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Objects\MyObject.h">
+    <ClInclude Include="Game\Objects\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DX3D\include\DX3D\Component\TransformComponent.h">
@@ -195,6 +201,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DX3D\include\DX3D\Input\InputSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DX3D\include\DX3D\Component\CameraComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

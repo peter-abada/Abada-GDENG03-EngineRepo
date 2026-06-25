@@ -6,7 +6,7 @@ namespace dx3_d
 	class ConstantBuffer final : public GraphicsResource
 	{
 	public:
-		ConstantBuffer(const ConstantBufferDesc& desc, const GraphicsResourceDesc& gdesc);
+		ConstantBuffer(const ConstantBufferDesc& desc, const GraphicsResourceDesc& gDesc);
 
 	private:
 		Microsoft::WRL::ComPtr<ID3D11Buffer> m_buffer{};

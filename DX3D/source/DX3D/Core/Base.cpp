@@ -1,5 +1,4 @@
 #include <DX3D/Core/Base.h>
-using namespace dx3_d;
 
 dx3_d::Base::Base(const BaseDesc& desc): m_logger(desc.logger)
 {
@@ -11,7 +10,7 @@ dx3_d::Base::~Base()
 	
 }
 
-Logger& dx3_d::Base::getLogger() noexcept
+dx3_d::Logger& dx3_d::Base::getLogger() noexcept
 {
 	return m_logger;
 }

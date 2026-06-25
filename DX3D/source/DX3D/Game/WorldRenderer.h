@@ -23,6 +23,7 @@ namespace dx3_d
 		struct alignas(16) ConstantData
 		{
 			Mat4x4 world{};
+			Mat4x4 view{};
 			Mat4x4 proj{};
 		};
 

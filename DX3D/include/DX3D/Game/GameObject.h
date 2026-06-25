@@ -33,6 +33,8 @@ namespace dx3_d
 		}
 
 		TransformComponent& getTransform() noexcept;
+		World& getWorld() noexcept;
+		InputSystem& getInputSystem() noexcept;
 
 	protected:
 		virtual void onCreate() {}
@@ -48,6 +50,7 @@ namespace dx3_d
 		std::unordered_map<size_t, UniquePtr<Component>> m_components{};
 		TransformComponent* m_transform{};
 
+		GameContext m_gameContext;
 		World& m_world;
 
 		friend class World;

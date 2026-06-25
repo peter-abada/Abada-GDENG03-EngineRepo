@@ -147,6 +147,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DX3D\source\DX3D\Component\CameraComponent.cpp" />
     <ClCompile Include="DX3D\source\DX3D\Component\CubeComponent.cpp" />
     <ClCompile Include="DX3D\source\DX3D\Game\Component.cpp" />
     <ClCompile Include="DX3D\source\DX3D\Graphics\ConstantBuffer.cpp" />
@@ -169,11 +170,13 @@
     <ClCompile Include="DX3D\source\DX3D\Graphics\IndexBuffer.cpp" />
     <ClCompile Include="DX3D\source\DX3D\Game\World.cpp" />
     <ClCompile Include="Game\MainGame.cpp" />
-    <ClCompile Include="Game\Objects\MyObject.cpp" />
+    <ClCompile Include="DX3D\source\DX3D\Math\MathUtils.h" />
     <ClCompile Include="DX3D\source\DX3D\Component\TransformComponent.cpp" />
     <ClCompile Include="DX3D\source\DX3D\Input\InputSystem.cpp" />
+    <ClCompile Include="Game\Objects\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DX3D\include\DX3D\Component\CameraComponent.h" />
     <ClInclude Include="DX3D\include\DX3D\Component\CubeComponent.h" />
     <ClInclude Include="DX3D\include\DX3D\Game\Component.h" />
     <ClInclude Include="DX3D\include\DX3D\Core\Identifiable.h" />
@@ -206,7 +209,7 @@
     <ClInclude Include="DX3D\include\DX3D\Game\GameObject.h" />
     <ClInclude Include="DX3D\include\DX3D\Game\World.h" />
     <ClInclude Include="Game\MainGame.h" />
-    <ClInclude Include="Game\Objects\MyObject.h" />
+    <ClInclude Include="Game\Objects\Player.h" />
     <ClInclude Include="DX3D\include\DX3D\Component\TransformComponent.h" />
     <ClInclude Include="DX3D\include\DX3D\Input\InputSystem.h" />
   </ItemGroup>
