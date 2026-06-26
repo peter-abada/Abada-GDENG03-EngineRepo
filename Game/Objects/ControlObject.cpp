@@ -17,13 +17,19 @@ void dx3_d::ControlObject::onUpdate(dx3_d::f32 deltaTime)
 {
 	auto& input = getInputSystem();
 
-	auto sensitivity = 0.1f;
+	auto sensitivity = 0.05f;
 	auto rotation = getTransform().getRotation();
 	if (input.isKeyDown(dx3_d::KeyCode::Up)) rotation.x += sensitivity;
 	if (input.isKeyDown(dx3_d::KeyCode::Down)) rotation.x -= sensitivity;
 	if (input.isKeyDown(dx3_d::KeyCode::Left)) rotation.y -= sensitivity;
 	if (input.isKeyDown(dx3_d::KeyCode::Right)) rotation.y += sensitivity;
 	getTransform().setRotation(rotation);
+
+	auto scale = getTransform().getScale();
+	auto scaleSens = 0.005f;
+	if (input.isKeyDown(dx3_d::KeyCode::O)) scale -= dx3_d::Vec3{ scaleSens, scaleSens, scaleSens };
+	if (input.isKeyDown(dx3_d::KeyCode::P)) scale += dx3_d::Vec3{ scaleSens, scaleSens, scaleSens };
+	getTransform().setScale(scale);
 
 	auto pos = getTransform().getPosition();
 	auto forward = 0.0f;
