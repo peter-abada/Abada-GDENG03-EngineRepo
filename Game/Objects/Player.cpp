@@ -30,14 +30,18 @@ void Player::onUpdate(dx3_d::f32 deltaTime)
 	auto pos = getTransform().getPosition();
 	auto forward = 0.0f;
 	auto right = 0.0f;
+	auto up = 0.0f;
 	auto speed = 3.0f;
 	if (input.isKeyDown(dx3_d::KeyCode::W)) forward = 1.0f;
 	if (input.isKeyDown(dx3_d::KeyCode::S)) forward = -1.0f;
 	if (input.isKeyDown(dx3_d::KeyCode::D)) right = 1.0f;
 	if (input.isKeyDown(dx3_d::KeyCode::A)) right = -1.0f;
+	if (input.isKeyDown(dx3_d::KeyCode::E)) up = 1.0f;
+	if (input.isKeyDown(dx3_d::KeyCode::Q)) up = -1.0f;
 	auto forwardDir = getTransform().forward() * forward;
 	auto rightDir = getTransform().right() * right;
-	auto direction = dx3_d::Vec3::normalize(forwardDir + rightDir);
+	auto upDir = getTransform().up() * up;
+	auto direction = dx3_d::Vec3::normalize(forwardDir + rightDir + upDir);
 	pos = pos + direction * speed * deltaTime;
 	getTransform().setPosition(pos);
 }
