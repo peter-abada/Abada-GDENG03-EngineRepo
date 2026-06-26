@@ -12,5 +12,6 @@ protected:
 
 private:
 	dx3_d::GameObject* m_player{};
+	dx3_d::GameObject* m_controlObject{};
 	dx3_d::f32 m_rot{}, m_scale{};
 };

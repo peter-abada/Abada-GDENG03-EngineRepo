@@ -147,6 +147,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Objects\ControlObject.cpp" />
     <ClCompile Include="DX3D\source\DX3D\Component\CameraComponent.cpp" />
     <ClCompile Include="DX3D\source\DX3D\Component\CubeComponent.cpp" />
     <ClCompile Include="DX3D\source\DX3D\Game\Component.cpp" />
@@ -176,6 +177,7 @@
     <ClCompile Include="Game\Objects\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Objects\ControlObject.h" />
     <ClInclude Include="DX3D\include\DX3D\Component\CameraComponent.h" />
     <ClInclude Include="DX3D\include\DX3D\Component\CubeComponent.h" />
     <ClInclude Include="DX3D\include\DX3D\Game\Component.h" />

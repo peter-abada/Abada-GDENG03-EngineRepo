@@ -8,8 +8,8 @@ public:
 	explicit Player(const dx3_d::GameObjectDesc& desc);
 	virtual ~Player() override;
 protected:
-	virtual void onCreate();
-	virtual void onUpdate(dx3_d::f32 deltaTime);
+	virtual void onCreate() override;
+	virtual void onUpdate(dx3_d::f32 deltaTime) override;
 
 private:
 

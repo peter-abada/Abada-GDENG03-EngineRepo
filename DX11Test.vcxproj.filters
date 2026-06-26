@@ -96,6 +96,9 @@
     <ClCompile Include="DX3D\source\DX3D\Component\CameraComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Objects\ControlObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DX3D\include\DX3D\Core\Base.h">
@@ -204,6 +207,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DX3D\include\DX3D\Component\CameraComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Objects\ControlObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
